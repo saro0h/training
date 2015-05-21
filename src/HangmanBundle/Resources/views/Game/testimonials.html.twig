@@ -1,0 +1,7 @@
+<h2>Testimonials of other players</h2>
+
+<ul>
+    {% for name, testimonial in testimonials %}
+    <li><strong>{{ name }}</strong> said "{{ testimonial }}".</li>
+    {% endfor %}
+</ul>

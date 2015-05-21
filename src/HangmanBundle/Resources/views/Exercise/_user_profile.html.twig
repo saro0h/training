@@ -1,0 +1,12 @@
+<h4>{{ user.name }} {{ user.lastname }} ({{ user.age }})</h4>
+<p>{{ user.biography|striptags }}</p>
+<p>{{ user.friends|length }} friends</p>
+
+<h4>Friends</h4>
+<ul>
+    {% for friend in user.friends if friend.age >= 18 %}
+        <li>{{ loop.index }} - {{ friend.name }} {{ friend.lastname }}</li>
+    {% else %}
+        <li>This user has no friends yet!</li>
+    {% endfor %}
+</ul>

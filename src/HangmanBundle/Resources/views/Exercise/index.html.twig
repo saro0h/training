@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Twig Exercises</title>
+    <style type="text/css">
+        body { font: 16px/1.4 Arial, sans-serif; }
+    </style>
+</head>
+<body>
+    <h1>Training SensioLabs on Symfony + Twig</h1>
+
+    <h3>
+        Exo 1: Display all the information about the first user. Hint: if the user biography contains HTML tags,
+        they should be interpreted, not escaped.
+    </h3>
+
+    <em>{{ user1.name }} {{ user1.lastname }} ({{ user1.age }})</em>
+    <p>{{ user1.biography|raw }}</p>
+    <p>{{ user1.friends|length }} friends</p>
+
+    <hr />
+
+    <h3>
+        Exo 2: Display all the information about the second user. Improve the template to extract all the
+        duplicated Twig code into another template fragment.
+    </h3>
+
+    {{ include('HangmanBundle:Exercise:_user_profile.html.twig', { user: user1 }) }}
+    {{ include('HangmanBundle:Exercise:_user_profile.html.twig', { user: user2 }) }}
+
+    <hr />
+
+    <h3>
+        Exo 3: For each user, display the list of his/her friends that are at least 18 years old.
+    </h3>
+
+        See above.
+
+    <hr />
+
+    <h3>
+        Exo 4: Display all the information about the order and calculate the total amount to pay including taxes.
+        If the payment method is credit card, display the last four digits of the card number.
+    </h3>
+    {% set taxes = order.totalWithoutTaxes * order.taxRate %}
+    <h4>Order</h4>
+    <ul>
+        <li>Total (without taxes): {{ order.totalWithoutTaxes|round(2, 'ceil') }}</li>
+        <li>Taxes ({{ (100 * order.taxRate)|round(2, 'ceil') }}%): {{ taxes }}</li>
+        <li>Total to pay: {{ (order.totalWithoutTaxes + taxes)|round(2, 'ceil') }}</li> {# method of round avalaible: ceil (up) and floor #}
+    </ul>
+
+
+    {% if 'credit_card' == order.paymentMethod %}
+        <li>Paid with credit card: *****{{ order.creditCardNumber[-4:] }}</li>
+    {% endif %}
+</body>
+</html>
