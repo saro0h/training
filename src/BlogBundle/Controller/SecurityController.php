@@ -29,4 +29,12 @@ class SecurityController extends Controller
     {
         // Never used!!!
     }
+
+    /**
+     * @Route("/blog/logout", name="logout")
+     */
+    public function logoutCheckAction()
+    {
+        // Never used!!!
+    }
 }

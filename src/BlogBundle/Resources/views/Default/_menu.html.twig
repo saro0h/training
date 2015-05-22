@@ -10,6 +10,7 @@
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
+                {% if app.user.username is defined %}
                 <li>
                     <a href="{{ path('blog_article_new') }}">Create article</a>
                 </li>
@@ -20,8 +21,13 @@
                     <a href="{{ path('user_list') }}">All users registered</a>
                 </li>
                 <li>
+                    <a href="{{ path('logout') }}">Logout</a>
+                </li>
+                {% else %}
+                <li>
                     <a href="{{ path('signin') }}">Login</a>
                 </li>
+                {% endif %}
             </ul>
         </div>
         <!-- /.navbar-collapse -->

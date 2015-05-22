@@ -97,7 +97,7 @@ class User implements UserInterface
 
     public function getRoles()
     {
-        return array('ROLE_USER');
+        return array('ROLE_USER', 'ROLE_ALLOWED_TO_SWITCH');
     }
 
     public function eraseCredentials()
@@ -118,5 +118,10 @@ class User implements UserInterface
     public function setEmail($email)
     {
         $this->email = $email;
+    }
+
+    public function __toString()
+    {
+        return $this->email.' '.$this->password;
     }
 }
