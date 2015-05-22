@@ -1,1 +1,23 @@
-Hello {{ name }}!
+{% extends "BlogBundle::layout.html.twig" %}
+
+{% block headerTitle %}Welcome guys <small>this is my awesome blog!</small>{% endblock %}
+
+{% block content %}
+
+    {% for article in articles %}
+    <div class="row">
+        <div class="col-md-7">
+            <a href="{{ path('blog_article_show', {'id': article.id}) }}">
+                <img class="img-responsive" src="http://placehold.it/700x300" alt="">
+            </a>
+        </div>
+        <div class="col-md-5">
+            <h3>{{ article.title }}</h3>
+            <h4>{{ article.subtitle }}</h4>
+            <p>{{ article.content|slice(0, 20) }}…</p>
+            <a class="btn btn-primary" href="{{ path('blog_article_show', {'id': article.id}) }}">View more <span class="glyphicon glyphicon-chevron-right"></span></a>
+        </div>
+    </div>
+    <hr>
+    {% endfor %}
+{% endblock %}

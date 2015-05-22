@@ -1,0 +1,17 @@
+{% extends "BlogBundle::layout.html.twig" %}
+
+{% block headerTitle %}
+    Here is the user lastly inserted.
+{% endblock %}
+
+{% block content %}
+    User information:<br />
+        id: {{ user.id }}
+        <br />
+        fullname: {{ user.fullname }}
+        <br />
+        username: {{ user.username }}
+        <br />
+        email: {{ user.email }}
+{% endblock %}
+

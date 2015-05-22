@@ -1,12 +1,7 @@
 blog:
     resource: "@BlogBundle/Controller/"
     type:     annotation
-    prefix:   /
 
 hangman:
     resource: "@HangmanBundle/Controller/"
-    type:     annotation
-
-app:
-    resource: "@AppBundle/Controller/"
     type:     annotation

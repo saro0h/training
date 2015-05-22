@@ -1,0 +1,11 @@
+{% extends "BlogBundle::layout.html.twig" %}
+
+{% block title %}Create new article{% endblock %}
+
+{% block headerTitle %}
+    New article<small>My very first form (soooo excited!)</small>
+{% endblock %}
+
+{% block content %}
+    {{ form(articleForm, {'attr': {'novalidate': 'novalidate'}}) }}
+{% endblock %}

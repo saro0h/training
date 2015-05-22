@@ -1,0 +1,20 @@
+{% extends "BlogBundle::layout.html.twig" %}
+
+{% block headerTitle %}
+    All users
+{% endblock %}
+
+{% block content %}
+    {% for user in users %}
+        User information:<br />
+        id: {{ user.id }}
+        <br />
+        fullname: {{ user.fullname }}
+        <br />
+        username: {{ user.username }}
+        <br />
+        email: {{ user.email }}
+
+        <hr />
+    {% endfor %}
+{% endblock %}

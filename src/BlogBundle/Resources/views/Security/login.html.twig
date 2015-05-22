@@ -1,0 +1,27 @@
+{% extends "BlogBundle::layout.html.twig" %}
+
+{% block headerTitle %}
+    Welcome! - <small>Login to discover the awesomeness of my blog</small>
+{% endblock %}
+
+{% block content %}
+    {% if error %}
+        <div class="alert alert-danger">
+            {{ error.message }}
+        </div>
+    {% endif %}
+
+    <form action="{{ path('login_check') }}" method="POST">
+        <div>
+            <label for="username">Username</label>
+            <input type="text" id="username" class="form-control" name="_username" value="{{ lastUsername }}">
+        </div>
+        <div>
+            <label for="password">Password</label>
+            <input type="password" id="password" class="form-control" name="_password">
+        </div>
+
+        <button type="submit" class="btn btn-success">Login</button>
+    </form>
+{% endblock %}
+
